@@ -15,6 +15,12 @@ client.on("message", (msg) => {
     msg.channel.send(
       "Hi, my name is SanrioBot. I'm currently being developed by Marvin. See you soon! 🌈✨"
     );
+  } else if (msg.content === `${prefix}sanrio daily`) {
+    msg.channel.send(
+      `${msg.author.username} claimed daily reward and received ${
+        Math.floor(Math.random() * 101) + 1
+      } coins!`
+    );
   }
 });
 
