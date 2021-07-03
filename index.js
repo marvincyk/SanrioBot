@@ -18,7 +18,7 @@ for (const file of commandFiles) {
   client.commands.set(command.name, command);
 }
 
-const { prefix } = process.env.PREFIX;
+const prefix = process.env.PREFIX;
 
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
