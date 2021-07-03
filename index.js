@@ -18,7 +18,7 @@ client.on("message", (msg) => {
   } else if (msg.content === `${prefix}sanrio daily`) {
     msg.channel.send(
       `${msg.author.username} claimed daily reward and received ${
-        Math.floor(Math.random() * 101) + 1
+        Math.floor(Math.random() * 100) + 1
       } coins!`
     );
   }
