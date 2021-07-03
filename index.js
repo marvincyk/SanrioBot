@@ -23,7 +23,7 @@ client.on("ready", () => {
 });
 
 client.on("message", (msg) => {
-  if (!msg.content.startsWith(`${prefix}sanrio`) || message.author.bot) return;
+  if (!msg.content.startsWith(`${prefix}sanrio`) || msg.author.bot) return;
 
   const command = msg.content.split(/ +/)[1];
 
