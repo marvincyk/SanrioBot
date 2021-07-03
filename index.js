@@ -1,6 +1,8 @@
 const dotenv = require("dotenv");
 dotenv.config();
 
+const mongoose = require("mongoose");
+
 const Discord = require("discord.js");
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -44,5 +46,16 @@ client.on("message", (msg) => {
     message.reply("there was an error trying to execute that command!");
   }
 });
+
+mongoose
+  .connect(process.env.MONGODB_SRV, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    dbName: "SanrioBotDB",
+  })
+  .then(() => console.log("Connected to SanrioBotDB!"))
+  .catch((err) => console.log(err));
 
 client.login(process.env.TOKEN);
