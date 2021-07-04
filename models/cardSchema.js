@@ -8,8 +8,8 @@ const cardSchema = new mongoose.Schema({
   image: String,
 });
 
-const Card = mongoose.model("Card", cardSchema);
-
 cardSchema.plugin(AutoIncrement, { inc_field: "id" });
+
+const Card = mongoose.model("Card", cardSchema);
 
 module.exports = Card;
