@@ -30,12 +30,12 @@ module.exports = {
     const timestamps = cooldowns.get(command.name);
     const cooldownAmount = (command.cooldown || 3) * 1000;
 
-    if (timestamps.has(message.author.id)) {
-      const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+    if (timestamps.has(msg.author.id)) {
+      const expirationTime = timestamps.get(msg.author.id) + cooldownAmount;
 
       if (now < expirationTime) {
         const timeLeft = (expirationTime - now) / 1000;
-        return message.reply(
+        return msg.reply(
           `please wait **${timeLeft.toFixed(
             1
           )}** more second(s) before reusing the **${command.name}** command.`
@@ -43,8 +43,8 @@ module.exports = {
       }
     }
 
-    timestamps.set(message.author.id, now);
-    setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
+    timestamps.set(msg.author.id, now);
+    setTimeout(() => timestamps.delete(msg.author.id), cooldownAmount);
 
     try {
       command.execute(msg);
