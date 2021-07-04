@@ -3,6 +3,7 @@ const AutoIncrement = require("mongoose-sequence")(mongoose);
 
 const cardSchema = new mongoose.Schema({
   name: { type: String, required: true },
+  description: String,
   rank: { type: String, required: true },
   image: String,
 });
