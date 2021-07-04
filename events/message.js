@@ -20,7 +20,7 @@ module.exports = {
       client.commands.get(command).execute(msg);
     } catch (err) {
       console.error(err);
-      message.reply("there was an error trying to execute that command!");
+      msg.reply("there was an error trying to execute that command!");
     }
   },
 };
