@@ -31,35 +31,6 @@ for (const file of eventFiles) {
   }
 }
 
-const prefix = process.env.PREFIX;
-
-client.on("ready", () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
-
-client.on("message", (msg) => {
-  if (!msg.content.startsWith(`${prefix}sanrio`) || msg.author.bot) return;
-
-  const command = msg.content.split(/ +/)[1];
-
-  if (!command) {
-    return msg.channel.send(
-      "Hi, my name is SanrioBot. I'm currently being developed by Marvin. See you soon! 🌈✨"
-    );
-  }
-
-  if (!client.commands.has(command)) {
-    return;
-  }
-
-  try {
-    client.commands.get(command).execute(msg);
-  } catch (err) {
-    console.error(err);
-    message.reply("there was an error trying to execute that command!");
-  }
-});
-
 mongoose
   .connect(process.env.MONGODB_SRV, {
     useNewUrlParser: true,

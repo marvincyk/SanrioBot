@@ -1,6 +1,7 @@
 module.exports = {
   name: "message",
   execute(msg) {
+    const prefix = process.env.PREFIX;
     if (!msg.content.startsWith(`${prefix}sanrio`) || msg.author.bot) return;
 
     const command = msg.content.split(/ +/)[1];
