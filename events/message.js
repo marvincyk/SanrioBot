@@ -36,9 +36,9 @@ module.exports = {
       if (now < expirationTime) {
         const timeLeft = (expirationTime - now) / 1000;
         return msg.reply(
-          `please wait **${timeLeft.toFixed(
-            1
-          )}** more second(s) before reusing the **${command.name}** command.`
+          `please wait **${new Date(timeLeft * 1000)
+            .toISOString()
+            .substr(11, 8)}** before reusing the **${command.name}** command.`
         );
       }
     }
