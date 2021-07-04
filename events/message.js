@@ -1,6 +1,6 @@
 module.exports = {
   name: "message",
-  execute(msg) {
+  execute(msg, client) {
     const prefix = process.env.PREFIX;
     if (!msg.content.startsWith(`${prefix}sanrio`) || msg.author.bot) return;
 
